@@ -14,15 +14,9 @@ namespace BusinessLogic.Mappers
         public AppProfile()
         {
 
-            CreateMap<MovieDto, Movie>()
-                .ForMember(movie => movie.Ganres, options => options.MapFrom(movieDto => movieDto.Ganres.Select(x => x.Ganre)));
-
-            //.ForMember(movie => movie.Id, options => options.Ignore())
-            //.ForMember(movie => movie.Ganre, options => options.Ignore());
-            //
-            CreateMap<Movie, MovieDto>().ReverseMap();
-            CreateMap<GanreDto, Ganre>().ReverseMap();
-            CreateMap<MovieGanre, MovieGanreDto>().ReverseMap();
+            CreateMap<Ganre, GanreDto>().ReverseMap();
+            CreateMap<Movie, MovieDto>().ForMember(movieDTO => movieDTO.Ganres, opt => opt.MapFrom(movie => movie.Ganres.Select(a => a.Ganre)));
+            CreateMap<MovieDto, Movie>();
         }
     }
 }

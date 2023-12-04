@@ -10,6 +10,6 @@ namespace DateAccess.Models
     {
         public int? Id { get; set; }
         public string? GanreName { get; set; }
-        public ICollection<MovieGanre>? Movies { get; }
+        public IEnumerable<MovieGanre>? Movies { get; }
     }
 }

@@ -13,6 +13,6 @@ namespace BusinessLogic.DTOs
         public string Title { get; set; }
         public string Description { get; set; }
         public string? ImagePath { get; set; }
-        public ICollection<MovieGanreDto>? Ganres { get; }
+        public IEnumerable<MovieGanreDto> Ganres { get; set; }
     }
 }
