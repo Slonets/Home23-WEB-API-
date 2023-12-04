@@ -57,13 +57,13 @@ namespace BusinessLogic.MovieServices
 
         public async Task<IEnumerable<MovieDto>> GetAllMovie()
         {
-            
-            var movies = _movieRepo.GetAsync(includeProperties: new[] { "Ganres" }).Result.ToList();
-                       
 
-            //var movie = _movieRepo.GetListBySpec(new MovieSpecification.OrderedAll()).Result.ToList();
+            //var movies = _movieRepo.GetAsync(includeProperties: new[] { "Ganres" }).Result.ToList();
 
-           return _mapper.Map<List<MovieDto>>(movies);
+
+            var movies = _movieRepo.GetListBySpec(new MovieSpecification.OrderedAll()).Result.ToList();
+
+            return _mapper.Map<List<MovieDto>>(movies);
         }
     }
 }
